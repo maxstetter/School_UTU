@@ -1,0 +1,45 @@
+1           .global sieve
+            .text
+//void sieve( char *primes, int size )
+sieve:
+            // x0: primes
+            // x1: size
+            // x2: i
+            // x3: candidate
+            // x4: prime
+            // x5: multiple
+            // x6: squared
+            // x7: temp
+
+            mov     x2, xzr
+            b       2f
+1:
+            mov     x7, #1
+            strb    w7, [x0, x2] //must work with 32 bit    version (w7, wx...) when working with bytes (strb, ldrb...)
+            add     x2, x2, #1
+2:          
+            cmp     x2, x1
+            b.lt    1b
+
+            mov     x4, #2
+            b       4f
+3:
+            ldrb    w3, [ x0, x4 ]
+            cbz     x3, 5f
+
+            add     x5, x4, x4
+            b       7f
+6:
+            strb    wzr, [ x0, x5 ]
+            add     x5, x5, x4
+7:
+            cmp     x5, x1
+            b.lt    6b
+5:
+            add     x4, x4, #1
+4:
+            mul     x6, x4, x4
+            cmp     x6, x1
+            b.lt    3b
+            
+            ret

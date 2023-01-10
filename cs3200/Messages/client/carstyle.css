@@ -1,0 +1,68 @@
+body
+{
+    column-count: 3;
+    background-color: #112147;
+
+    color: aliceblue;
+    font-family: monaco, monospace;
+	background-image: url('porsche.jpg');
+
+    text-align: center;
+    display: grid;
+    grid-auto-flow: column;
+    
+}
+
+h1
+{
+    font-family: monaco, monospace;
+    font-size: 70px;
+    padding-bottom: 0px;
+    margin-bottom: 5px;
+}
+
+h2
+{
+    padding-top: 0px;
+}
+
+ul
+{
+    padding: 0px;
+    margin: 0px;
+}
+
+#transparent-box
+{
+    padding-top: 10px;
+    padding-bottom: 25px;
+    background-color: rgba( 72, 72, 72, 0.6);
+}
+
+
+#car-button
+{
+    border-radius: 8px;
+    background-color: #112147;
+    color:aliceblue;
+    border: 2px solid goldenrod;
+    font-size: x-large;
+    width: 180px;
+
+    transition-duration: 0.2s;
+
+    box-shadow: 0 8px gray;
+    
+}
+
+#car-button:hover
+{
+    background-color: goldenrod;
+    color: #112147;
+}
+
+#car-button:active
+{
+    box-shadow: 0 5px goldenrod;
+    transform: translateY(2px);
+}

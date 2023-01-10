@@ -1,0 +1,78 @@
+%
+% Assignment 2b for CS3530 Computational Theory:
+% Context-free Grammars and Pushdown Automata
+% Fall 2022
+%
+% Problems taken from Sipser
+%
+
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{ae,aecompl}
+\usepackage{emp,ifpdf}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\ifpdf\DeclareGraphicsRule{*}{mps}{*}{}\fi
+
+\empaddtoTeX{\usepackage{amsmath}}
+\empprelude{input boxes; input theory}
+
+% skip for paragraphs, don't indent
+\parskip 6pt plus 1pt
+\parindent=0pt
+\raggedbottom
+
+% a list environment with no bullets or numbers
+\newenvironment{indentlist}{\begin{list}{}{\addtolength{\itemsep}{0.5\baselineskip}}}{\end{list}}
+
+\begin{document}
+\begin{empfile}
+
+\begin{center}
+\textbf{\Large CS 3530: Assignment 2b} \\[2mm]
+Fall 2022
+\end{center}
+
+\raggedright
+
+
+\section*{Exercise 2.9 (10 points)}
+
+\subsection*{Problem}
+
+Give a context-free grammar that generates the language
+$$
+A=\{a^ib^jc^k|i=j\text{ or }j=k\text{ where }i,j,k\geq 0\}.
+$$
+
+For all CFGs, describe the role that each rule performs as well as
+giving the actual rule.
+
+\subsection*{Solution}
+
+
+
+\section*{Exercise 2.5be (10 points)}
+
+\subsection*{Problem}
+
+Give informal descriptions and state diagrams of pushdown automata
+for the languages in Exercise~2.4.
+
+\begin{enumerate}
+\item[\textbf{b.}] $\{w|w$ starts and ends with the same symbol$\}$
+\item[\textbf{e.}] $\{w|w = w^R$, that is, $w$ is a palindrome$\}$
+\end{enumerate}
+
+\subsection*{Solution}
+
+
+\end{empfile}
+\immediate\write18{mpost -tex=latex \jobname}
+\end{document}

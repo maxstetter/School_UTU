@@ -1,0 +1,42 @@
+body {
+  background: #222222;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+h1 {
+  color: #FFFFFF;
+}
+
+.board {
+  background: #444444;
+  border-radius: 25px;
+  display: inline-flex;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.col {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.marker {
+  background: #999999;
+  border: 1px solid #333333;
+  border-radius: 50px;
+  height: 100px;
+  margin: 5px;
+  width: 100px;
+}
+
+.marker.blue {
+  background: #6666FF;
+  border-color: #FFFFFF;
+}
+
+.marker.red {
+  background: #FF6666;
+  border-color: #FFFFFF;
+}

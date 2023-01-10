@@ -1,0 +1,51 @@
+%
+% Assignment 5d for CS3530 Computational Theory:
+% Computability
+% Fall 2022
+%
+% Problems taken from Sipser
+%
+
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{ae,aecompl}
+\usepackage{enumerate}
+
+% skip for paragraphs, don't indent
+\parskip 6pt plus 1pt
+\parindent=0pt
+\raggedbottom
+
+% a list environment with no bullets or numbers
+\newenvironment{indentlist}{\begin{list}{}{\addtolength{\itemsep}{0.5\baselineskip}}}{\end{list}}
+
+\begin{document}
+\begin{center}
+\textbf{\Large CS 3530: Assignment 5d} \\[2mm]
+Fall 2022
+\end{center}
+
+\raggedright
+
+\section*{Problem 5.14 (20 points)}
+
+\subsection*{Problem}
+
+Consider the problem of determining whether a Turing machine $M$ on
+an input $w$ ever attempts to move its head left when its head is on
+the left-most tape cell. Formulate this problem as a language and
+show that it is undecidable.
+
+You must use a reduction to get full credit on this problem. This
+means you should not assume $T$ is decidable, nor should you
+construct a decider for $A_\text{TM}$, etc. You may not use Rice's
+theorem.
+
+\subsection*{Solution}
+
+\end{document}

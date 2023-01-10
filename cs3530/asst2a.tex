@@ -1,0 +1,86 @@
+%
+% Assignment 2a for CS3530 Computational Theory:
+% Context-free Grammars and Pushdown Automata
+% Fall 2022
+%
+% Problems taken from Sipser
+%
+
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{ae,aecompl}
+\usepackage{emp,ifpdf}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\ifpdf\DeclareGraphicsRule{*}{mps}{*}{}\fi
+
+\empaddtoTeX{\usepackage{amsmath}}
+\empprelude{input boxes; input theory}
+
+% skip for paragraphs, don't indent
+\parskip 6pt plus 1pt
+\parindent=0pt
+\raggedbottom
+
+% a list environment with no bullets or numbers
+\newenvironment{indentlist}{\begin{list}{}{\addtolength{\itemsep}{0.5\baselineskip}}}{\end{list}}
+
+\begin{document}
+\begin{empfile}
+
+\begin{center}
+\textbf{\Large CS 3530: Assignment 2a} \\[2mm]
+Fall 2022
+\end{center}
+
+\raggedright
+
+
+
+\section*{Exercise 2.1abcd (10 points)}
+
+\subsection*{Problem}
+
+Recall the CFG $G_4$ that we gave in example 2.4. For convenience, let's rename its variables with single letters as follows.
+
+\[ E \rightarrow E + T|T \]
+\[ T \rightarrow T \times F | F \]
+\[ F \rightarrow (E) | a \]
+
+Give derivations for each string.
+
+
+\begin{enumerate}
+\item[\textbf{a.}] $a$
+\item[\textbf{b.}] $a+a$
+\item[\textbf{c.}] $a+a+a$
+\item[\textbf{d.}] $((a))$
+\end{enumerate}
+
+\subsection*{Solution}
+
+
+
+\section*{Exercise 2.4bc (10 points)}
+
+\subsection*{Problem}
+
+Give context-free grammars that generate the following languages.  In all parts, the alphabet $\Sigma$ is $\{0,1\}$.
+
+\begin{enumerate}
+\item[\textbf{b.}] $\{ w | w$ starts and ends with the same symbol $\}$
+\item[\textbf{c.}] $\{ w |$ the length of $w$ is odd $\}$
+\end{enumerate}
+
+\subsection*{Solution}
+
+
+\end{empfile}
+\immediate\write18{mpost -tex=latex \jobname}
+\end{document}

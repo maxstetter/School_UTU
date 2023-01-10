@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Essay Log Book </title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="icon" href="http://clipart-library.com/images/6cyXxxnxi.png">
+	</head>
+	<body>
+		<nav>
+			<div class="logo">
+				<h4>Essay Log Book</h4>
+			</div>
+			<ul class="nav-links">
+				<li>
+					<a href="index.html">Students</a>
+				</li>
+				<li>
+					<a href="essay.html">Essays</a>
+				</li>
+				<li>
+					<a href="notes.html">Notes</a>
+				</li>
+			</ul>
+			<div class="burger">
+				<div class="line1"></div>
+				<div class="line2"></div>
+				<div class="line3"></div>
+			</div>
+		</nav>
+		<div id="app">
+			<div class="activity">
+				<h1>Log an Essay</h1>
+			</div>
+			<div class="top">
+					Student: <select v-model="selectStudent">
+						<option v-for="student in Students" :value="student._id" >{{student.fname}} {{student.lname}}</option>
+					</select>
+					Reason: <input type="text" v-model="inputReason">
+					Size: <input type="number" v-model="inputSize">
+					From: <input type="text" v-model="inputFrom">
+					Date: <input type="date" class="question" v-model="inputEdate">
+					
+					<button v-on:click="createEssay">Log</button>
+			</div>
+			<div class="bottom">
+				<h1>Essays</h1>
+				<ul>
+					<li v-for="essay in Essays" :style="[essay.completed ? {'background-color': '#A2E4B8', 'transition': 'background-color 1s'} : {'background-color': '#ff7f7f', 'transition': 'background-color 1s'}]">	
+						<div v-for="student in Students" v-if="student._id == essay.student"><h3>{{student.fname}} {{student.lname}}</h3></div>
+						<strong>Size:</strong> {{essay.size}}<br><br>
+						<strong>Reason:</strong> {{essay.reason}}<br><br>
+						<strong>Date:</strong> {{essay.strdate}}<br><br>
+						<strong>From:</strong> {{essay.from}}<br><br>
+						<strong>Completed:</strong> 
+						<label class="switch">
+							<input v-model="essay.completed" @change="markEssay(essay)" type="checkbox">
+							<span class="slider round"></span>
+						</label>
+						<br>
+						<button @click="deleteEssay(essay)" :style="[essay.completed ? {'background-color': '#A2E4B8', 'transition': 'background-color 1s'} : {'background-color': '#ff7f7f', 'transition': 'background-color 1s'}]">Delete</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+		<script src="app.js"></script>
+	</body>
+</html>

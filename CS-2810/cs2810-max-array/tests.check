@@ -1,0 +1,51 @@
+#include <inttypes.h>
+
+extern int64_t array_max(int64_t *, int64_t);
+extern int64_t callfunction(int64_t *, int64_t);
+extern int64_t (*target_function)(int64_t *, int64_t);
+extern int64_t unsaved_register_number;
+
+#suite alltests
+#tcase simple
+
+#test arraymaxtest
+    target_function = array_max;
+
+    // check with some simple cases
+    int64_t array1[] = {5, 0};
+
+    ck_assert_int_eq(callfunction(array1, 1), 5);
+    ck_assert_int_eq(unsaved_register_number, 0);
+
+    array1[0] = -9000;
+
+    ck_assert_int_eq(callfunction(array1, 1), -9000);
+    ck_assert_int_eq(unsaved_register_number, 0);
+
+    int64_t array2[] = {-2, 13, 16, -24, 5, 7, 11, 10, 6, 13};
+
+    ck_assert_int_eq(callfunction(array2, 10), 16);
+    ck_assert_int_eq(unsaved_register_number, 0);
+
+    int64_t array3[] = {17, 13, 16, -24, 5, 7, 11, 10, 6, 13};
+
+    ck_assert_int_eq(callfunction(array3, 10), 17);
+    ck_assert_int_eq(unsaved_register_number, 0);
+
+    int64_t array4[] = {17, 13, 16, -24, 5, 7, 11, 10, 6, 18};
+
+    ck_assert_int_eq(callfunction(array4, 10), 18);
+    ck_assert_int_eq(unsaved_register_number, 0);
+
+    int64_t array5[] = {1700, 1300, 1600, -2400, 500, 700, 1100, 1000, 600, 1800};
+
+    ck_assert_int_eq(callfunction(array5, 10), 1800);
+    ck_assert_int_eq(unsaved_register_number, 0);
+
+    int64_t array6[] = {-1700, -1300, -1600, -2400, -500, -700, -1100, -1000, -600, -1800};
+
+    ck_assert_int_eq(callfunction(array6, 10), -500);
+    ck_assert_int_eq(unsaved_register_number, 0);
+
+#main-pre
+    srunner_set_xml(sr, "test_detail.xml");

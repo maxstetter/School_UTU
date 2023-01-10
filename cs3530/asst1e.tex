@@ -1,0 +1,128 @@
+%
+% Assignment 2b for CS3530 Computational Theory:
+% Regular Expressions
+% Fall 2022
+%
+% Problems taken from Sipser
+%
+
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{ae,aecompl}
+\usepackage{emp,ifpdf}
+\usepackage{graphicx}
+\usepackage{enumerate}
+
+\ifpdf\DeclareGraphicsRule{*}{mps}{*}{}\fi
+
+\empprelude{input boxes; input theory}
+
+% skip for paragraphs, don't indent
+\parskip 6pt plus 1pt
+\parindent=0pt
+\raggedbottom
+\newenvironment{indentlist}{\begin{list}{}{\addtolength{\itemsep}{0.5\baselineskip}}}{\end{list}}
+
+\begin{document}
+\begin{empfile}
+
+\begin{center}
+\textbf{\Large CS 3530: Assignment 1e} \\[2mm]
+Fall 2022
+
+\emph{Your Name Here}
+\end{center}
+
+\raggedright
+
+\section*{Exercise 1.21 (10 points)}
+
+\subsection*{Problem}
+
+Use the procedure described in Lemma~1.60 to convert the following
+finite automata to regular expressions. When ripping states, rip
+state 1 first, then state 2, then state 3.
+
+\begin{center}
+\begin{emp}(0,0)
+  mediumnodes;
+  u := 1.5cm;
+  udiag := 2u/sqrt(3);
+
+  node.q1("1"); q1.c = (0,0);
+  node.q2("2"); q2.c = (0,-u);
+  makestart(q1);
+  makefinal(q2);
+  drawboxed(q1,q2);
+  loop(q1,right,A);
+  edge(q1,q2,curve,B);
+  edge(q2,q1,curve,B);
+  loop(q2,right,A);
+  label.bot("(a)", q2.s+(0,-12pt));
+
+  node.r1("1"); r1.c = (2u, 0);
+  node.r2("2"); r2.c = (2u + udiag, 0);
+  node.r3("3"); r3.c = (2u + 0.5udiag, -u);
+  makestart(r1);
+  makefinal(r1,r3);
+  drawboxed(r1,r2,r3);
+  edge(r1,r2,left,AB);
+  edge(r2,r3,curve,B);
+  edge(r3,r2,curve,B);
+  edge(r3,r1,left,A);
+  loop(r2,right,A);
+  label.bot("(b)", r3.s+(0,-12pt));
+\end{emp}
+\end{center}
+
+\subsection*{Solution}
+
+\section*{Exercise 1.28c (10 points)}
+
+\subsection*{Problem}
+
+Convert the following regular expressions to NFAs using the
+procedure given in Theorem~1.54. In all parts $\Sigma=\{a,b\}$.
+Note: $a^+$ is defined as $aa^*$, and should be constructed as the
+concatenation of $a$ with $a^*$. Do not simplify, and do not skip
+steps. You only need to show the final state diagram.
+
+\begin{enumerate}
+\item[\bfseries c.] $(a\cup bb^*)aa^*bb^*$
+\end{enumerate}
+
+\subsection*{Solution}
+
+%% \section*{Exercise 1.29b (0 points) \emph{not required}}
+
+%% \subsection*{Problem}
+
+%% Use the pumping lemma to show that the following languages are not regular.
+%% \begin{enumerate}
+%% \item[\bfseries b.] $A_2=\{www:w\in\{a,b\}^*\}$
+%% \end{enumerate}
+
+%% \subsection*{Solution}
+
+% \section*{Problem 1.43 (6 points)}
+%
+% \subsection*{Problem}
+% 
+% Let $A$ be any language. Define \textit{DROP-OUT}$(A)$ to be the
+% language containing all strings that can be obtained by removing one
+% symbol from a string in $A$. Thus, \textit{DROP-OUT}$(A)=\{xz:
+% xyz\in A$ where $x,z\in\Sigma^*,y\in\Sigma\}$. Show that the class
+% of regular languages is closed under the \textit{DROP-OUT}
+% operation. Give both a proof by picture and a more formal proof by
+% construction as in Theorem~1.47.
+% 
+% \subsection*{Solution}
+
+\end{empfile}
+\immediate\write18{mpost -tex=latex \jobname}
+\end{document}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Essay Log Book </title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="icon" href="http://clipart-library.com/images/6cyXxxnxi.png">
+	</head>
+	<body>
+		<nav>
+			<div class="logo">
+				<h4>Essay Log Book</h4>
+			</div>
+			<ul class="nav-links">
+				<li>
+					<a href="index.html">Students</a>
+				</li>
+				<li>
+					<a href="essay.html">Essays</a>
+				</li>
+				<li>
+					<a href="notes.html">Notes</a>
+				</li>
+			</ul>
+			<div class="burger">
+				<div class="line1"></div>
+				<div class="line2"></div>
+				<div class="line3"></div>
+			</div>
+		</nav>
+		<div id="app">
+
+                <div class="activity" v-show="divNote">
+					<h1>Progress Notes</h1>
+                </div> 
+			<div class="top" v-show="divNote">
+					Student: <select v-model="selectStudent">
+						<option v-for="student in Students" :value="student._id">{{student.fname}} {{student.lname}}</option>
+					</select>
+					From: <input type="text" v-model="inputNfrom">
+					Date: <input type="date" class="question" v-model="inputNdate">
+					Note: <textarea id="note" v-model="inputNote"></textarea>
+					<button v-on:click="createNote">Log</button>
+			</div>
+			<div class="bottom" v-show="divNote">
+				<h1>Notes</h1>
+				<ul>
+					<li v-for="note in Notes">
+						<div v-for="student in Students" v-if="student._id == note.student"><h3>{{student.fname}} {{student.lname}}</h3></div>
+                        <strong>From:</strong> {{note.from}}<br><br>
+                    	<strong>Date:</strong> {{note.strdate}}<br><br>
+                        <strong>Note:</strong>  
+						<span class="note" v-if="!note.edit" v-on:click="$set(note, 'edit', !note.edit)">{{note.prognote}}<br><br></span>
+							<div v-if="note.edit">
+								<textarea id="EDITNOTE" name="EDITNOTE" rows="10" cols="50" v-model="note.prognote">{{note.prognote}}</textarea>
+							</div>
+							<button v-if="!note.edit" v-on:click="$set(note, 'edit', !note.edit)">
+								<span v-if="!note.edit">Edit</span>
+									<button v-if="note.edit" @click="editNote(note)">Save</button>
+							</button>
+                    </li>
+				</ul>
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+		<script src="app.js"></script>
+	</body>
+</html>
