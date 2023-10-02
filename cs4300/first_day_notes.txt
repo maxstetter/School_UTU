@@ -1,0 +1,34 @@
+What we did:
+- roll call.
+- What is this class.
+- Syllabus.
+- Going over AI.
+- Intelligent Agents.
+- HW assignment.
+
+What is this class:
+- AI agent.
+- Explore several different algos that can be used to develop an AI.
+- Talk about a lot of stuff.
+
+Syllabus:
+- Roughly 1 assignment a week.
+- Mini quizzes from time to time.
+- Exams
+- No multiplied grading scheme.
+
+Going over AI:
+- Zoom 11:00
+
+Intelligent Agents:
+- Agents [Roomba, Chef, Taxi Driver] agents interact with their environments.
+- Environments [House, Restaurant, Roads] the environment in which agents reside.
+- Rationality reasoning behind actions with environment.
+- Useful diagram on zoom 11:30.
+
+HW Assignment:
+- Due Thursday before class.
+- PDF
+- Identify three problems that could potentially be solved by a rational agent. (agent)
+- Paragraph per problem.
+- get you thinking about what can AI be used to deal with.
