@@ -1,8 +1,9 @@
 import agent1
 import policy_search
+import policy_search
 
 # Availabe functions to call
-available_functions = ["Generate Default Policy", "Process Policy", "Run Agent"]
+available_functions = ["Process Policy", "Run Agent"]
 text_break = "-------------------------------"
 
 # Nice print message
@@ -12,26 +13,18 @@ def select_print(func_num):
 def run_script(function_type):
     select_print(function_type)
 
-    # Handle Generate Random Policy
-    if function_type == 0:
-        size = int(input("--> Size of Array: "))
-        policy_search.write_policy(policy_search.default_policy(size))
-        print("Policy Generated: {}".format(policy_search.decode_policy()))
-
     # Handle Process Policy
-    if function_type == 1:
-        print("god damn n words")
+    if function_type == 0:
         iterations = int(input("--> Iterations: "))
-        policy_search.process_policy()
+        policy_search.process_policy(iterations)
 
     # Handle Run Agent
-    if function_type == 2:
+    if function_type == 1:
         iterations = int(input("--> Iterations: "))
         render = int(input("0 = default, 1 = human\n--> Render Mode: "))
 
         total = 0
-        for i in range(0, iterations):
-            total += agent1.create_agent(render)
+        total += agent1.create_agent(render, iterations)
 
         print('Average Score: ', total / iterations)
 
